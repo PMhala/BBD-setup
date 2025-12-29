@@ -7,16 +7,16 @@ import io.cucumber.java.Before;
 
 public class Hooks {
 
-    public static WebDriver driver;
+    public static WebDriver driver;   // shared driver
 
     @Before
-    public void setup() {
+    public void setUp() {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
     }
 
     @After
     public void tearDown() {
-//        driver.quit();
+        driver.quit();   // ALWAYS close browser after scenario
     }
 }
